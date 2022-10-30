@@ -1,0 +1,4 @@
+#!/command/with-contenv sh
+
+s6-echo "Starting GoBGPd"
+gobgpd -f /etc/gobgpd.toml

@@ -1,0 +1,9 @@
+[template]
+src = "gobgpd.toml.tmpl"
+dest = "/etc/gobgpd.toml"
+keys = [
+    "/local/address",
+    "/local/as",
+    "/remote/address",
+    "/remote/as"
+]

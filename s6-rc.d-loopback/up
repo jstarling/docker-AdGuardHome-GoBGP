@@ -1,0 +1,2 @@
+/command/importas LOOPBACK_V4 LOOPBACK_V4
+ip address add ${LOOPBACK_V4}/32 dev lo

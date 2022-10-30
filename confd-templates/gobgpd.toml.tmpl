@@ -1,0 +1,8 @@
+[global.config]
+  as = {{getv "/local/as"}}
+  router-id = "{{getv "/local/address"}}"
+
+[[neighbors]]
+  [neighbors.config]
+      neighbor-address = "{{getv "/remote/address"}}"
+      peer-as = {{getv "/remote/as"}}

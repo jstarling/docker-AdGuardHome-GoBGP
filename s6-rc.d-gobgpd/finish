@@ -1,0 +1,4 @@
+#!/command/with-contenv sh
+
+s6-echo "Stopping GoBGPd"
+kill -9 $(pgrep gobgpd)
