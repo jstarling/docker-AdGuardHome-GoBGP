@@ -11,7 +11,6 @@ docker run \
   --hostname resolver3 \
   --interactive \
   --ip 10.64.64.55 \
-  --ip6 2a02:8012:5b3:64::55 \
   --name resolver3 \
   --network services_macvlan \
   --rm \
