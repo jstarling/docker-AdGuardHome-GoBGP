@@ -1,19 +1,19 @@
 
-ARG ADGUARDHOME_VERSION=0.107.18
+ARG ADGUARDHOME_VERSION=0.107.23
 
 # Temporary Stage
-FROM alpine:3.16.2 AS stage1
+FROM alpine:3.17.1 AS stage1
 
 ARG CONFD_VERSION=0.16.0
 ARG CONFD_SHA256=255d2559f3824dd64df059bdc533fd6b697c070db603c76aaf8d1d5e6b0cc334
-ARG GOBGP_VERSION=3.8.0
-ARG GOBGP_SHA256=9669426b62db942c21c42b4201ee5fdb616d0bb833b98b265d81aaec175fab1d
-ARG S6_OVERLAY_VERSION=3.1.2.1
-ARG S6_NOARCH_SHA256=cee89d3eeabdfe15239b2c5c3581d9352d2197d4fd23bba3f1e64bf916ccf496
-ARG S6_X86_64_SHA256=6019b6b06cfdbb1d1cd572d46b9b158a4904fd19ca59d374de4ddaaa6a3727d5
+ARG GOBGP_VERSION=3.11.0
+ARG GOBGP_SHA256=cc31ad2597613b0fdd3cc08b033c95669c757cc91500bf417946dbbdd5883877
+ARG S6_OVERLAY_VERSION=3.1.3.0
+ARG S6_NOARCH_SHA256=e7f0f8fa406446bd115ac8b8ddf31e9c65f860407e621fdc9912c88ff91e752e
+ARG S6_X86_64_SHA256=8fc3ba1b80d678813fce57388420946a52e380abf917b1ee04ce3b62ff2b6d30
 
 # Prerequisites
-RUN apk --no-cache add curl=7.83.1-r4
+RUN apk --no-cache add curl=7.87.0-r1
 
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 
@@ -39,7 +39,7 @@ RUN mkdir /s6 \
 FROM adguard/adguardhome:v${ADGUARDHOME_VERSION}
 
 # add dig
-RUN apk --no-cache add bind-tools=9.6.33-r0
+RUN apk --no-cache add bind-tools=9.16.37-r0
 
 # s6 overlay
 COPY --from=stage1 /s6 /
